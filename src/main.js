@@ -4,7 +4,9 @@ import store from './store';
 import router from './router';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
+
+
 
 const app = createApp(App);
 app.use(store); 

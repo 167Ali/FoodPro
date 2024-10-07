@@ -1,11 +1,19 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
-const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Hello // Lazy-loaded
-      }
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router';
+import ProfileSettings from '../views/ProfileSettings.vue';
+import FavoritesPage from '../views/favs.vue'
+const routes = [{
+    path: '/',
+    name: 'ProfileSettings',
+    component: ProfileSettings // Lazy-loaded
+  },
+  {
+    path: '/fav',
+    name: 'Favorites',
+    component: FavoritesPage, // Add the FavoritesPage route
+  },
 ];
 
 const router = createRouter({

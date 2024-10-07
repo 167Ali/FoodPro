@@ -1,12 +1,12 @@
 import { createStore } from 'vuex';
 
 
-  },
-  actions: {
+import profileModule from './modules/profile'; 
 
-  },
-  getters: {
- 
+const store = createStore({
+  modules: {
+    profile: profileModule, 
+    
   },
 });
 
