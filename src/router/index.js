@@ -1,11 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
+import NavbarHeader from '../views/NavbarHeader.vue'
+import CheckOut from '../components/CheckOut.vue'
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Hello // Lazy-loaded
-      }
+        name: 'header',
+        component: NavbarHeader,
+        children:[
+          {
+            path: '/',
+            name: 'checkout',
+            component: CheckOut,
+          }
+        ]
+    }
 ];
 
 const router = createRouter({
