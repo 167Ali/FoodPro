@@ -5,7 +5,7 @@
             <span class="brand-name">foodpro</span>
         </div>
         <div class="navbar-right">
-            <div class="user-dropdown" @click="toggleDropdown">
+            <div class="user-dropdown" ref="dropdown" @click="toggleDropdown">
                 <span>{{ username }}</span>
                 <font-awesome-icon :icon="['fas', dropdownOpen ? 'caret-up' : 'caret-down']" class="arrow" />
                 <div v-show="dropdownOpen" class="dropdown-menu">
@@ -39,37 +39,29 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faCaretDown,
     faCaretUp,
-    faCrown,
-    faGift,
+    faShoppingCart,
+    faUtensils,
+    faShoppingBag,
+    faUser,
     faQuestionCircle,
     faSignOutAlt,
-    faShoppingBag,
-    faShoppingCart,
-    faTrophy,
-    faUser,
-    faUtensils,
-    faWallet,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faCaretDown,
     faCaretUp,
-    faCrown,
-    faGift,
+    faShoppingCart,
+    faUtensils,
+    faShoppingBag,
+    faUser,
     faQuestionCircle,
     faSignOutAlt,
-    faShoppingBag,
-    faShoppingCart,
-    faTrophy,
-    faUser,
-    faUtensils,
-    faWallet
 );
 
 export default {
@@ -80,15 +72,31 @@ export default {
     setup() {
         const dropdownOpen = ref(false);
         const username = ref('USER');
+        const dropdown = ref(null);
 
         const toggleDropdown = () => {
             dropdownOpen.value = !dropdownOpen.value;
         };
 
+        const closeDropdown = (event) => {
+            if (dropdown.value && !dropdown.value.contains(event.target)) {
+                dropdownOpen.value = false;
+            }
+        };
+
+        onMounted(() => {
+            document.addEventListener('click', closeDropdown);
+        });
+
+        onBeforeUnmount(() => {
+            document.removeEventListener('click', closeDropdown);
+        });
+
         return {
             dropdownOpen,
             username,
             toggleDropdown,
+            dropdown,
         };
     },
 };

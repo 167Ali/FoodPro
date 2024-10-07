@@ -1,6 +1,6 @@
 <template>
-  <hr>
   <footer class="footer">
+    <hr>
     <div class="footer-links">
       <!-- First Column -->
       <div class="footer-column">
@@ -23,7 +23,6 @@
       <!-- third Column -->
       <div class="footer-column">
         <ul>
-          <li><a href="#">All cities</a></li>
           <li><a href="#">foodpro - Monthly Subscription Programme</a></li>
           <li><a href="#">Help Center</a></li>
           <li><a href="#">Terms and Conditions</a></li>

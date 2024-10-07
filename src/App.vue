@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <LoginHeader />
+    <LoginHeader /> 
     <PageFooter />
   </div>
 </template>
