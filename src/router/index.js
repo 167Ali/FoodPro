@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
+import LoginHeader from '../components/LoginHeader.vue';
 const routes = [
     {
         path: '/',
         name: 'Home',
-        component: Hello // Lazy-loaded
+        component: LoginHeader // Lazy-loaded
       }
 ];
 
