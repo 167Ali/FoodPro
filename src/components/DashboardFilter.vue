@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="d-none d-md-flex flex-column card filters">
+        <div class="d-none d-lg-flex flex-column card filters">
             <h5>Filters</h5>
             <h6>Sort by</h6>
             <div>
@@ -42,9 +42,9 @@
         </div>
 
         <!-- Filter Icon for small screens -->
-        <div class="d-md-none mt-2">
+        <div class="d-lg-none mt-2">
             <button class="btn btn-outline-secondary" @click="showFilters = !showFilters">
-                <i class="bi bi-funnel"></i> Filter
+                <i class="fa-solid fa-filter fa-lg" style="color: #303640;"></i>
             </button>
             <div v-if="showFilters" class="position-absolute bg-light border p-3" style="z-index: 1000;">
                 <h5>Filters</h5>
@@ -143,7 +143,7 @@ function togglePrice(price) {
 
 <style scoped>
 .filters {
-    width: 300px;
+    max-width: 300px;
     height: 100%;
     overflow-y: auto;
     position: fixed;

@@ -1,13 +1,17 @@
 <template>
-    <div class="row me-5">
+    <div class="row me-xl-5 me-lg-2">
         <div class="col-lg-3">
             <DashboardFilter />
         </div>
         <div class="col-lg-9">
             <div class="position-relative my-4">
-                <input type="text" class="form-control rounded-pill border-0 shadow-sm search"
-                    placeholder="Search for restaurants, cuisines, and dishes" v-model="searchQuery"
-                    @focus="showDropdown = true" @blur="hideDropdown" />
+                <div class="position-relative">
+                    <input type="text" class="form-control rounded-pill border-0 shadow-sm search ps-5"
+                        placeholder="Search for restaurants, cuisines, and dishes" v-model="searchQuery"
+                        @focus="showDropdown = true" @blur="hideDropdown" />
+                    <i class="fa-solid fa-magnifying-glass fa-lg position-absolute"
+                        style="color: rgb(123, 123, 123); top: 50%; left: 15px; transform: translateY(-50%);"></i>
+                </div>
                 <div class="dropdown mt-1 border-0 shadow-sm" v-if="showDropdown">
                     <div class="dropdown-menu show">
                         <h6 class="dropdown-header">Recent searches</h6>
@@ -22,7 +26,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-12 mb-4" v-for="(restaurant, index) in restaurants" :key="index">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4" v-for="(restaurant, index) in restaurants"
+                    :key="index">
                     <RestaurantCard :image="restaurant.image" :name="restaurant.name" :cuisine="restaurant.cuisine"
                         :rating="restaurant.rating" :reviews="restaurant.reviews" :price="restaurant.price"
                         :deliveryTime="restaurant.deliveryTime" :deliveryFee="restaurant.deliveryFee"
@@ -362,6 +367,7 @@ const restaurants = [
     width: 100%;
     z-index: 1000;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .search {
