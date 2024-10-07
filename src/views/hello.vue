@@ -1,3 +1,3 @@
 <template>
-    <h1>FoodPro</h1>
+    <h1>FoodPro Updated</h1>
 </template>
