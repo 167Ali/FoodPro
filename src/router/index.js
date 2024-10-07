@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
+import Restaurantpage from '../views/Restaurantpage.vue'
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Hello // Lazy-loaded
+        name: 'restaurant-page',
+        component: Restaurantpage
       }
 ];
 
