@@ -11,28 +11,12 @@
                 <div v-show="dropdownOpen" class="dropdown-menu">
                     <ul>
                         <li>
-                            <font-awesome-icon :icon="['fas', 'wallet']" />
-                            pandapay
-                        </li>
-                        <li>
-                            <font-awesome-icon :icon="['fas', 'crown']" />
-                            Subscribe to free delivery
-                        </li>
-                        <li>
                             <font-awesome-icon :icon="['fas', 'shopping-bag']" />
                             Orders & reordering
                         </li>
                         <li>
                             <font-awesome-icon :icon="['fas', 'user']" />
                             Profile
-                        </li>
-                        <li>
-                            <font-awesome-icon :icon="['fas', 'gift']" />
-                            Vouchers
-                        </li>
-                        <li>
-                            <font-awesome-icon :icon="['fas', 'trophy']" />
-                            panda rewards
                         </li>
                         <hr />
                         <li>
@@ -57,6 +41,37 @@
 <script>
 import { ref } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+    faCaretDown,
+    faCaretUp,
+    faCrown,
+    faGift,
+    faQuestionCircle,
+    faSignOutAlt,
+    faShoppingBag,
+    faShoppingCart,
+    faTrophy,
+    faUser,
+    faUtensils,
+    faWallet,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+    faCaretDown,
+    faCaretUp,
+    faCrown,
+    faGift,
+    faQuestionCircle,
+    faSignOutAlt,
+    faShoppingBag,
+    faShoppingCart,
+    faTrophy,
+    faUser,
+    faUtensils,
+    faWallet
+);
+
 export default {
     name: 'LoginHeader',
     components: {
