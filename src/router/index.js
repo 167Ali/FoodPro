@@ -1,10 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
+
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Hello // Lazy-loaded
+    name: 'Home', // Change name to avoid duplicates
+    component: () => import('../views/DashboardResturantPage.vue') // Use relative path
+  },
+  {
+    path: '/dashboardresturantpage',
+    name: 'DashboardResturant', // Change name to avoid duplicates
+    component: () => import('../views/DashboardResturantPage.vue') // This is fine if you need this route
   }
 ];
 
