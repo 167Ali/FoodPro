@@ -1,11 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Hello from '../views/hello.vue'
+import OrderReorder from '../views/OrderReorder.vue';
+import PrevorderDetails from '../views/PrevorderDetails.vue'; // Import new component
+
+
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Hello // Lazy-loaded
-      }
+  {
+    path: '/',
+    name: 'Home',
+    component: OrderReorder,
+  },
+  {
+    path: '/order-details/:id',  // Define dynamic route with 'id' parameter
+    name: 'PrevorderDetails',
+    component: PrevorderDetails,
+    props: true, // Pass route params as props to the component
+  }
 ];
 
 const router = createRouter({
