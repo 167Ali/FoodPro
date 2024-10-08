@@ -7,7 +7,7 @@
         <div class="navbar-right">
             <div class="user-dropdown" ref="dropdown" @click="toggleDropdown">
                 <span>{{ username }}</span><font-awesome-icon :icon="['fas', 'user']" />
-                
+
                 <!-- Use v-show to toggle visibility of the dropdown -->
                 <div v-show="dropdownOpen" class="dropdownmenu">
                     <ul>
@@ -19,7 +19,7 @@
                             <font-awesome-icon :icon="['fas', 'user']" />
                             Profile
                         </li>
-                        
+
                         <li>
                             <font-awesome-icon :icon="['fas', 'question-circle']" />
                             Help center
@@ -44,7 +44,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { 
+import {
     faShoppingCart,
     faUtensils,
     faShoppingBag,
@@ -69,7 +69,7 @@ export default {
     },
     setup() {
         const dropdownOpen = ref(false);
-        const username = ref('USER');
+        const username = ref('Guest');
         const dropdown = ref(null);
 
         const toggleDropdown = (event) => {
@@ -167,10 +167,9 @@ export default {
     border: 1px solid #eaeaea;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    padding: 10px;
     min-width: 200px;
     z-index: 1000;
-   
+
 }
 
 [v-show="true"] .dropdownmenu {
@@ -186,7 +185,7 @@ export default {
 }
 
 .dropdownmenu li {
-    padding: 10px 0;
+    padding: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -204,22 +203,18 @@ export default {
     font-size: 18px;
 }
 
-.dropdownmenu hr {
-    margin: 10px 0;
-    border: none;
-    border-top: 1px solid #eaeaea;
-} 
-
 .cart-icon {
     margin-left: 20px;
-    
+
     display: flex;
     align-items: center;
     font-size: 25px;
 }
-.cart-icon:hover{
+
+.cart-icon:hover {
     cursor: pointer;
 }
+
 .icon {
     font-size: 20px;
 }
