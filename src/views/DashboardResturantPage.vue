@@ -1,29 +1,13 @@
 <template>
     <div class="row me-xl-5 me-lg-2">
-        <div class="col-lg-3">
+        <div class="d-none d-lg-block col-lg-3">
             <DashboardFilter />
         </div>
         <div class="col-lg-9">
-            <div class="position-relative my-4">
-                <div class="position-relative">
-                    <input type="text" class="form-control rounded-pill border-0 shadow-sm search ps-5"
-                        placeholder="Search for restaurants, cuisines, and dishes" v-model="searchQuery"
-                        @focus="showDropdown = true" @blur="hideDropdown" />
-                    <i class="fa-solid fa-magnifying-glass fa-lg position-absolute"
-                        style="color: rgb(123, 123, 123); top: 50%; left: 15px; transform: translateY(-50%);"></i>
-                </div>
-                <div class="dropdown mt-1 border-0 shadow-sm" v-if="showDropdown">
-                    <div class="dropdown-menu show">
-                        <h6 class="dropdown-header">Recent searches</h6>
-                        <div class="dropdown-item" v-for="(item, index) in recentSearches" :key="index">
-                            {{ item }}
-                        </div>
-                        <h6 class="dropdown-header">Popular searches</h6>
-                        <div class="dropdown-item" v-for="(item, index) in popularSearches" :key="index">
-                            {{ item }}
-                        </div>
-                    </div>
-                </div>
+            <Searchbar />
+            <div class="d-lg-none">
+                <!-- Different placement of filter for non-lg screens -->
+                <DashboardFilter />
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4" v-for="(restaurant, index) in restaurants"
@@ -41,24 +25,9 @@
 <script setup>
 import RestaurantCard from '../components/RestaurantCard.vue'
 import DashboardFilter from '../components/DashboardFilter.vue'
-import { ref } from 'vue';
-const searchQuery = ref('');
-const showDropdown = ref(false);
+import Searchbar from '../components/Searchbar.vue'
 
-const recentSearches = [
-    'zing burger'
-];
 
-const popularSearches = [
-    'pizza', 'kfc', 'burger', 'biryani', 'dominos',
-    'pizza middle size price 300', 'mcdonalds', 'kfc zinger burger deal by 1 get 1 free'
-];
-
-function hideDropdown() {
-    setTimeout(() => {
-        showDropdown.value = false;
-    }, 200); // Delay to allow click event on dropdown items to register
-}
 
 const restaurants = [
     {
@@ -362,15 +331,4 @@ const restaurants = [
 ]
 </script>
 
-<style scoped>
-.dropdown-menu {
-    width: 100%;
-    z-index: 1000;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.search {
-    height: 60px;
-}
-</style>>
+<style scoped></style>>

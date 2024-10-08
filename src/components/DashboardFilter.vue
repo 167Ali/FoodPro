@@ -163,4 +163,11 @@ function togglePrice(price) {
     margin: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* @media only screen and (max-width: 1350px) {
+
+    .filters {
+        max-width: 250px;
+    }
+} */
 </style>
