@@ -6,19 +6,20 @@
         </div>
         <div class="navbar-right">
             <div class="user-dropdown" ref="dropdown" @click="toggleDropdown">
-                <span>{{ username }}</span>
-                <font-awesome-icon :icon="['fas', dropdownOpen ? 'caret-up' : 'caret-down']" class="arrow" />
-                <div v-show="dropdownOpen" class="dropdown-menu">
+                <span>{{ username }}</span><font-awesome-icon :icon="['fas', 'user']" />
+                
+                <!-- Use v-show to toggle visibility of the dropdown -->
+                <div v-show="dropdownOpen" class="dropdownmenu">
                     <ul>
                         <li>
                             <font-awesome-icon :icon="['fas', 'shopping-bag']" />
-                            Orders & reordering
+                            Order & Reorder
                         </li>
                         <li>
                             <font-awesome-icon :icon="['fas', 'user']" />
                             Profile
                         </li>
-                        <hr />
+                        
                         <li>
                             <font-awesome-icon :icon="['fas', 'question-circle']" />
                             Help center
@@ -38,13 +39,12 @@
     </nav>
 </template>
 
+
 <script>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-    faCaretDown,
-    faCaretUp,
+import { 
     faShoppingCart,
     faUtensils,
     faShoppingBag,
@@ -54,8 +54,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
-    faCaretDown,
-    faCaretUp,
     faShoppingCart,
     faUtensils,
     faShoppingBag,
@@ -74,11 +72,13 @@ export default {
         const username = ref('USER');
         const dropdown = ref(null);
 
-        const toggleDropdown = () => {
+        const toggleDropdown = (event) => {
+            event.stopPropagation(); // Prevent bubbling to the document click listener
             dropdownOpen.value = !dropdownOpen.value;
         };
 
         const closeDropdown = (event) => {
+            // Only close if the click is outside the dropdown
             if (dropdown.value && !dropdown.value.contains(event.target)) {
                 dropdownOpen.value = false;
             }
@@ -101,6 +101,7 @@ export default {
     },
 };
 </script>
+
 
 <style scoped>
 .navbar {
@@ -131,6 +132,8 @@ export default {
 .navbar-right {
     display: flex;
     align-items: center;
+    gap: 20px;
+    margin-right: 50px;
 }
 
 .user-dropdown {
@@ -138,6 +141,13 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.user-dropdown:hover {
+    background-color: #f1f1f1;
+    border-radius: 8px;
 }
 
 .user-dropdown span {
@@ -149,7 +159,7 @@ export default {
     margin-left: 5px;
 }
 
-.dropdown-menu {
+.dropdownmenu {
     position: absolute;
     top: 100%;
     right: 0;
@@ -158,39 +168,58 @@ export default {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
+    min-width: 200px;
     z-index: 1000;
+   
 }
 
-.dropdown-menu ul {
+[v-show="true"] .dropdownmenu {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.dropdownmenu ul {
     list-style: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
 }
 
-.dropdown-menu li {
+.dropdownmenu li {
     padding: 10px 0;
     display: flex;
     align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.dropdown-menu li i {
+.dropdownmenu li:hover {
+    background-color: #aef18b;
+    border-radius: 5px;
+}
+
+.dropdownmenu li i {
     margin-right: 10px;
+    font-size: 18px;
 }
 
-.dropdown-menu hr {
+.dropdownmenu hr {
     margin: 10px 0;
     border: none;
     border-top: 1px solid #eaeaea;
-}
+} 
 
 .cart-icon {
     margin-left: 20px;
-    cursor: pointer;
+    
     display: flex;
     align-items: center;
     font-size: 25px;
 }
-
+.cart-icon:hover{
+    cursor: pointer;
+}
 .icon {
     font-size: 20px;
 }

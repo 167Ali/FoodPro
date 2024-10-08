@@ -1,22 +1,12 @@
 <template>
   <div id="app">
-    <LoginHeader /> 
-    <PageFooter />
+    <router-view /> <!-- This will render the active route component -->
   </div>
 </template>
 
 <script>
-import LoginHeader from './components/LoginHeader.vue';
-import BeforeLoginHeader from './components/BeforeLoginHeader.vue';
-import PageFooter from './components/PageFooter.vue';
-
 export default {
   name: 'App',
-  components: {
-    LoginHeader,
-    BeforeLoginHeader,
-    PageFooter,
-  },
 };
 </script>
 
