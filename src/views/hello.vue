@@ -1,17 +1,12 @@
 <!-- HomeView.vue -->
 <template>
     <div>
-      
-      <Moreinfo />
-      <seereviews/>
-      <itemdetail/>
+      <AdminFinanceDashboard/>
     </div>
   </template>
   
   <script setup>
-  import Moreinfo from '../components/Moreinfo.vue'; // Importing the modal component
-  import seereviews from '../components/SeeReviews.vue'
-  import itemdetail from '../components/itemdetail.vue'
+  import AdminFinanceDashboard from '../components/AdminFinanceDashboard.vue';
   </script>
   
   <style scoped>
