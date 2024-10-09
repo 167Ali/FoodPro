@@ -6,7 +6,7 @@ import Bussiness_Landing from '../views/Bussiness_Landing.vue';
 import RestaurantOwner_Dashboard from '../views/RestaurantOwner_Dashboard.vue';
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Hello 
   },
@@ -21,7 +21,7 @@ const routes = [
     component: User_signup 
   },
   {
-    path: '/',
+    path: '/BL',
     name: 'Bussiness_Landing',
     component: Bussiness_Landing 
   },
