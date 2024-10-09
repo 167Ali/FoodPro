@@ -77,6 +77,7 @@
     text-align: center;
     flex-grow: 1;
     font-weight: bolder;
+    color:  #00754A;
   }
   
   .modal-overlay {
